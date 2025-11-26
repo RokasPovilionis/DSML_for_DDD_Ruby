@@ -1,0 +1,31 @@
+source 'https://rubygems.org'
+
+ruby '~> 3.2.0'
+
+# Rails framework
+gem 'rails', '~> 7.1.0'
+
+# Database
+gem 'pg', '~> 1.5'
+
+# Web server
+gem 'puma', '>= 5.0'
+
+# JSON API
+gem 'jbuilder'
+
+# Use Active Model has_secure_password
+gem 'bcrypt', '~> 3.1.7'
+
+# Reduces boot times through caching
+gem 'bootsnap', require: false
+
+group :development, :test do
+  gem 'debug', platforms: %i[mri windows]
+  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 6.0'
+end
+
+group :development do
+  gem 'spring'
+end

@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+require_relative '../config/boot'
+require_relative '../config/environment'
+require 'rails/commands/server/server_command'
+
+Rails::Server.new(app: Rails.application).start

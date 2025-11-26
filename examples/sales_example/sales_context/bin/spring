@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require_relative '../config/boot'
+require 'bundler/setup'
+load Gem.bin_path('spring', 'spring')
