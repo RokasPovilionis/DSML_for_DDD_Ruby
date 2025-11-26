@@ -1,0 +1,114 @@
+<mxlibrary>[
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Bounded Context\" ddd_type=\"bounded_context\" ddd_name=\"\" context_key=\"\" id=\"2\"&gt;&lt;mxCell parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;\" vertex=\"1\"&gt;&lt;mxGeometry height=\"60\" width=\"120\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 60,
+    "aspect": "fixed",
+    "title": "Bounded Context"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Aggregate Root\" ddd_type=\"aggregate_root\" ddd_name=\"\" context_key=\"\" id_type=\"\" rails_resource=\"\" id=\"2\"&gt;&lt;mxCell parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;\" vertex=\"1\"&gt;&lt;mxGeometry height=\"60\" width=\"120\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 60,
+    "aspect": "fixed",
+    "title": "Aggregate Root"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Entity\" ddd_type=\"entity\" ddd_name=\"\" id_type=\"\" aggregate=\"\" id=\"2\"&gt;&lt;mxCell parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;\" vertex=\"1\"&gt;&lt;mxGeometry height=\"60\" width=\"120\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 60,
+    "aspect": "fixed",
+    "title": "Entity"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Value Object\" ddd_type=\"value_object\" ddd_name=\"\" aggregate=\"\" id=\"2\"&gt;&lt;mxCell parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;\" vertex=\"1\"&gt;&lt;mxGeometry height=\"60\" width=\"120\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 60,
+    "aspect": "fixed",
+    "title": "Value Object"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Repository\" ddd_type=\"repository\" ddd_name=\"\" aggregate=\"\" db_adapter=\"\" id=\"2\"&gt;&lt;mxCell parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;\" vertex=\"1\"&gt;&lt;mxGeometry height=\"60\" width=\"120\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 60,
+    "aspect": "fixed",
+    "title": "Repository"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Domain Service\" ddd_type=\"domain_service\" ddd_name=\"\" bounded_context=\"\" id=\"2\"&gt;&lt;mxCell parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;\" vertex=\"1\"&gt;&lt;mxGeometry height=\"60\" width=\"120\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 60,
+    "aspect": "fixed",
+    "title": "Domain Service"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Application Service\" ddd_type=\"application_service\" ddd_name=\"\" bounded_context=\"\" exposed_as=\"\" id=\"2\"&gt;&lt;mxCell parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;\" vertex=\"1\"&gt;&lt;mxGeometry height=\"60\" width=\"120\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 60,
+    "aspect": "fixed",
+    "title": "Application Service"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"Domain Event\" ddd_type=\"domain_event\" ddd_name=\"\" bounded_context=\"\" event_type=\"\" id=\"2\"&gt;&lt;mxCell parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;\" vertex=\"1\"&gt;&lt;mxGeometry height=\"60\" width=\"120\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 60,
+    "aspect": "fixed",
+    "title": "Domain Event"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"External System\" ddd_type=\"external_system\" ddd_name=\"\" id=\"2\"&gt;&lt;mxCell parent=\"1\" style=\"rounded=1;whiteSpace=wrap;html=1;\" vertex=\"1\"&gt;&lt;mxGeometry height=\"60\" width=\"120\" as=\"geometry\"/&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 120,
+    "h": 60,
+    "aspect": "fixed",
+    "title": "External System"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"\" relation_type=\"composition\" cardinality_from=\"\" cardinality_to=\"\" id=\"2\"&gt;&lt;mxCell edge=\"1\" parent=\"1\" style=\"endArrow=classic;html=1;rounded=0;\"&gt;&lt;mxGeometry height=\"50\" relative=\"1\" width=\"50\" as=\"geometry\"&gt;&lt;mxPoint as=\"sourcePoint\"/&gt;&lt;mxPoint x=\"230\" as=\"targetPoint\"/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;mxCell id=\"3\" connectable=\"0\" parent=\"2\" style=\"edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelPosition=center;verticalLabelPosition=middle;fontSize=14;\" value=\"Composition\" vertex=\"1\"&gt;&lt;mxGeometry relative=\"1\" x=\"0.42\" y=\"2\" as=\"geometry\"&gt;&lt;mxPoint x=\"-43\" as=\"offset\"/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 230,
+    "h": 1,
+    "aspect": "fixed",
+    "title": "Composition"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"\" relation_type=\"association\" cardinality_from=\"\" cardinality_to=\"\" id=\"2\"&gt;&lt;mxCell edge=\"1\" parent=\"1\" style=\"endArrow=classic;html=1;rounded=0;\"&gt;&lt;mxGeometry height=\"50\" relative=\"1\" width=\"50\" as=\"geometry\"&gt;&lt;mxPoint as=\"sourcePoint\"/&gt;&lt;mxPoint x=\"230\" as=\"targetPoint\"/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;mxCell id=\"3\" connectable=\"0\" parent=\"2\" style=\"edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelPosition=center;verticalLabelPosition=middle;fontSize=14;\" value=\"Association\" vertex=\"1\"&gt;&lt;mxGeometry relative=\"1\" x=\"0.42\" y=\"2\" as=\"geometry\"&gt;&lt;mxPoint x=\"-43\" as=\"offset\"/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 230,
+    "h": 1,
+    "aspect": "fixed",
+    "title": "Association"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"\" relation_type=\"uses\" id=\"2\"&gt;&lt;mxCell edge=\"1\" parent=\"1\" style=\"endArrow=classic;html=1;rounded=0;\"&gt;&lt;mxGeometry height=\"50\" relative=\"1\" width=\"50\" as=\"geometry\"&gt;&lt;mxPoint as=\"sourcePoint\"/&gt;&lt;mxPoint x=\"230\" as=\"targetPoint\"/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;mxCell id=\"3\" connectable=\"0\" parent=\"2\" style=\"edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelPosition=center;verticalLabelPosition=middle;fontSize=14;\" value=\"Uses\" vertex=\"1\"&gt;&lt;mxGeometry relative=\"1\" x=\"0.42\" y=\"2\" as=\"geometry\"&gt;&lt;mxPoint x=\"-43\" as=\"offset\"/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 230,
+    "h": 1,
+    "aspect": "fixed",
+    "title": "Uses"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"\" relation_type=\"repository_access\" id=\"2\"&gt;&lt;mxCell edge=\"1\" parent=\"1\" style=\"endArrow=classic;html=1;rounded=0;\"&gt;&lt;mxGeometry height=\"50\" relative=\"1\" width=\"50\" as=\"geometry\"&gt;&lt;mxPoint as=\"sourcePoint\"/&gt;&lt;mxPoint x=\"230\" as=\"targetPoint\"/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;mxCell id=\"3\" connectable=\"0\" parent=\"2\" style=\"edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelPosition=center;verticalLabelPosition=middle;fontSize=14;\" value=\"Repository Access\" vertex=\"1\"&gt;&lt;mxGeometry relative=\"1\" x=\"0.42\" y=\"2\" as=\"geometry\"&gt;&lt;mxPoint x=\"-43\" as=\"offset\"/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 230,
+    "h": 1,
+    "aspect": "fixed",
+    "title": "Repository Access"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"\" relation_type=\"publishes_event\" id=\"2\"&gt;&lt;mxCell edge=\"1\" parent=\"1\" style=\"endArrow=classic;html=1;rounded=0;\"&gt;&lt;mxGeometry height=\"50\" relative=\"1\" width=\"50\" as=\"geometry\"&gt;&lt;mxPoint as=\"sourcePoint\"/&gt;&lt;mxPoint x=\"230\" as=\"targetPoint\"/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;mxCell id=\"3\" connectable=\"0\" parent=\"2\" style=\"edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelPosition=center;verticalLabelPosition=middle;fontSize=14;\" value=\"Publishes Event\" vertex=\"1\"&gt;&lt;mxGeometry relative=\"1\" x=\"0.42\" y=\"2\" as=\"geometry\"&gt;&lt;mxPoint x=\"-43\" as=\"offset\"/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 230,
+    "h": 1,
+    "aspect": "fixed",
+    "title": "Publishes Event"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"\" relation_type=\"consumes_event\" id=\"2\"&gt;&lt;mxCell edge=\"1\" parent=\"1\" style=\"endArrow=classic;html=1;rounded=0;\"&gt;&lt;mxGeometry height=\"50\" relative=\"1\" width=\"50\" as=\"geometry\"&gt;&lt;mxPoint as=\"sourcePoint\"/&gt;&lt;mxPoint x=\"230\" as=\"targetPoint\"/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;mxCell id=\"3\" connectable=\"0\" parent=\"2\" style=\"edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelPosition=center;verticalLabelPosition=middle;fontSize=14;\" value=\"Consumes Event\" vertex=\"1\"&gt;&lt;mxGeometry relative=\"1\" x=\"0.42\" y=\"2\" as=\"geometry\"&gt;&lt;mxPoint x=\"-43\" as=\"offset\"/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 230,
+    "h": 1,
+    "aspect": "fixed",
+    "title": "Consumes Event"
+  },
+  {
+    "xml": "&lt;mxGraphModel&gt;&lt;root&gt;&lt;mxCell id=\"0\"/&gt;&lt;mxCell id=\"1\" parent=\"0\"/&gt;&lt;object label=\"\" relation_type=\"integration\" id=\"2\"&gt;&lt;mxCell edge=\"1\" parent=\"1\" style=\"endArrow=classic;html=1;rounded=0;\"&gt;&lt;mxGeometry height=\"50\" relative=\"1\" width=\"50\" as=\"geometry\"&gt;&lt;mxPoint as=\"sourcePoint\"/&gt;&lt;mxPoint x=\"230\" as=\"targetPoint\"/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;/object&gt;&lt;mxCell id=\"3\" connectable=\"0\" parent=\"2\" style=\"edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelPosition=center;verticalLabelPosition=middle;fontSize=14;\" value=\"Integration\" vertex=\"1\"&gt;&lt;mxGeometry relative=\"1\" x=\"0.42\" y=\"2\" as=\"geometry\"&gt;&lt;mxPoint x=\"-43\" as=\"offset\"/&gt;&lt;/mxGeometry&gt;&lt;/mxCell&gt;&lt;/root&gt;&lt;/mxGraphModel&gt;",
+    "w": 230,
+    "h": 1,
+    "aspect": "fixed",
+    "title": "Integration"
+  }
+]</mxlibrary>
