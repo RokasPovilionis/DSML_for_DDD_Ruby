@@ -10,4 +10,3 @@ This folder contains example pairs **(X, y)** used in the thesis.
 - **y** = generated Ruby / Ruby on Rails artefacts
   In this project, y is:
   - Ruby / Rails code produced from the model (e.g. models, services, events),
-  - stored under a `generated/` subdirectory for each example.
