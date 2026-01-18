@@ -20,16 +20,31 @@ The solution consists of four main parts:
    The developer uses the DSML library to model the business domain in Draw.io and saves the model as a `.drawio` file.
    These diagrams describe the DDD structure: bounded contexts, aggregates, relationships, services, and events.
 
-3. **AI-based Code Generation**
-   The `.drawio` model is interpreted (in later stages via a parser) into a structured representation of the domain.
-   This representation is sent to a Large Language Model (LLM) together with generation rules and conventions for Ruby / Rails.
+3. **Diagram Parser** ✅
+   The `.drawio` model is parsed into a structured representation of the domain using a custom Ruby parser:
+   - **Nokogiri-based XML parsing** for robust handling of Draw.io files
+   - **Metadata extraction** for all DSML properties (ddd_type, ddd_name, bounded_context, etc.)
+   - **Graph model** with nodes (DDD concepts) and edges (relationships)
+   - **Query API** for accessing parsed elements by type, name, or relationships
+   - **60+ RSpec tests** ensuring reliability
+
+   ```bash
+   # Test the parser
+   ruby parse_diagram.rb examples/sales_example/model.drawio.xml
+   cd ddd_diagram_parser && bundle exec rspec
+   ```
+
+   See [`ddd_diagram_parser/README.md`](ddd_diagram_parser/README.md) for detailed documentation.
+
+4. **AI-based Code Generation**
+   The structured representation is sent to a Large Language Model (LLM) together with generation rules and conventions for Ruby / Rails.
    The LLM produces:
    - Ruby models for aggregates, entities, and value objects
    - domain and application service classes
    - domain event classes
    - optionally repository and integration skeletons
 
-4. **Generated Code as a Starting Point**
+5. **Generated Code as a Starting Point**
    The generated Ruby / Rails code is written into the project (e.g. under `generated/`), where the developer can:
    - review and refine the code,
    - iterate on the DSML model and regenerate if needed,
