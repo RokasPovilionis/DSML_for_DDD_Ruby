@@ -2,6 +2,7 @@
 
 require 'bundler/setup'
 require_relative '../parser'
+require_relative '../validator'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

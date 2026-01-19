@@ -30,13 +30,9 @@ module DddDiagramParser
       # Step 1: Parse XML and extract cells
       diagrams = XmlParser.parse_file(@file_path)
 
-      if diagrams.empty?
-        raise "No diagrams found in #{@file_path}"
-      end
+      raise "No diagrams found in #{@file_path}" if diagrams.empty?
 
-      if diagram_index >= diagrams.length
-        raise "Diagram index #{diagram_index} out of range (found #{diagrams.length} diagrams)"
-      end
+      raise "Diagram index #{diagram_index} out of range (found #{diagrams.length} diagrams)" if diagram_index >= diagrams.length
 
       diagram_data = diagrams[diagram_index]
 
@@ -68,9 +64,7 @@ module DddDiagramParser
         next if %w[0 1].include?(cell[:id])
 
         # Skip decorative elements (cells with parent that is not "1" and no metadata)
-        if cell[:parent] && cell[:parent] != '1' && cell[:metadata].empty?
-          next
-        end
+        next if cell[:parent] && cell[:parent] != '1' && cell[:metadata].empty?
 
         if cell[:edge]
           edges_data << cell

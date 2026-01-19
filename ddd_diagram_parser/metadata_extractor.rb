@@ -37,11 +37,9 @@ module DddDiagramParser
       metadata = {}
 
       # First, get metadata from the metadata hash (from <object> attributes)
-      if @cell[:metadata]
-        @cell[:metadata].each do |key, value|
-          normalized_key = normalize_key(key)
-          metadata[normalized_key] = normalize_value(value) if normalized_key
-        end
+      @cell[:metadata]&.each do |key, value|
+        normalized_key = normalize_key(key)
+        metadata[normalized_key] = normalize_value(value) if normalized_key
       end
 
       # Fix common typos (bonded_context -> bounded_context)

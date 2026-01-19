@@ -1,0 +1,36 @@
+# frozen_string_literal: true
+
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+
+# Disable overly strict metrics cops
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Enabled: false
+
+# Allow long lines for better readability
+Layout/LineLength:
+  Max: 180
+
+# Naming conventions - be more permissive
+Naming/PredicatePrefix:
+  Enabled: false
+
+# Style preferences - allow multiline block chains for functional style
+Style/MultilineBlockChain:
+  Enabled: false
