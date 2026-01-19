@@ -99,8 +99,6 @@ ruby parse_diagram.rb examples/sales_example/model.drawio.xml --validate
 
 The parser includes a comprehensive validation framework that enforces DSML and DDD constraints:
 
-### Phase A - Basic Correctness
-
 **R1: Required Fields**
 - Every node must have `ddd_type` and `ddd_name`
 - Error codes: `R1_MISSING_DDD_TYPE`, `R1_MISSING_DDD_NAME`
@@ -194,8 +192,6 @@ The parser includes a comprehensive validation framework that enforces DSML and 
 - Error code: `R10_ILLEGAL_USES_TARGET`
 - Warning code: `R10_UNUSUAL_USES_TARGET`
 
-### Phase C - DDD Semantic Constraints
-
 **R11: Entity and Value Object Ownership**
 - Every `entity` and `value_object` must belong to an `aggregate_root`
 - Validated through:
@@ -281,30 +277,12 @@ ddd_diagram_parser/
 ├── .rspec              # RSpec configuration
 ├──Development Status
 
-✅ **Completed:**
+**Completed:**
 - XML parsing with Nokogiri
 - DSML metadata extraction
 - Graph model with query API
 - Validation framework (R1-R14)
 - 134+ RSpec tests, all passing
-
-🚧 **Upcoming:**
-- Phase D: Naming and Completeness (R15-R16)
-  - R13: Event ownership validation
-  - R14: Cross-BC link detection
-- Phase D: Nice to Have (R15-R16)
-  - R15: Naming conventions
-  - R16: Completeness checks
-- Code Generation: Generate Ruby/Rails code from validated diagrams
-- AI Integration: LLM-based code generation with validated model
-└── spec/               # Test suite
-    ├── spec_helper.rb
-    ├── parser_spec.rb
-    ├── model_spec.rb
-    ├── node_spec.rb
-    ├── edge_spec.rb
-    └── metadata_extractor_spec.rb
-```
 
 ## Example
 
