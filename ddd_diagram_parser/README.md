@@ -8,8 +8,8 @@ A Ruby library for parsing Draw.io diagrams that follow Domain-Driven Design (DD
 - **DSML Metadata Extraction**: Extracts DDD-specific properties from diagram elements
 - **Graph Representation**: Internal model with nodes (DDD entities) and edges (relationships)
 - **Query API**: Convenient methods to query the parsed model by type, name, or relationships
-- **Validation Framework**: 10 validation rules (R1-R10) enforcing DSML and DDD constraints
-- **Comprehensive Testing**: Full RSpec test suite with 110+ tests
+- **Validation Framework**: 14 validation rules (R1-R14) enforcing DSML and DDD constraints
+- **Comprehensive Testing**: Full RSpec test suite with 134 tests
 
 ## Installation
 
@@ -52,6 +52,18 @@ require_relative 'ddd_diagram_parser/validator'
 model = DddDiagramParser::Parser.parse('path/to/diagram.drawio.xml')
 report = DddDiagramParser::Validator.validate(model)
 
+# Check results
+if report.valid?
+  puts "✓ Validation passed"
+else
+  puts report.to_s
+end
+```
+
+## Architecture
+
+### Core Components
+
 **Parsing:**
 - **`Node`**: Represents DDD concepts (BoundedContext, Aggregate, Entity, Service, etc.)
 - **`Edge`**: Represents relationships (uses, composition, publishes, etc.)
@@ -64,7 +76,7 @@ report = DddDiagramParser::Validator.validate(model)
 - **`ValidationReport`**: Container for validation errors and warnings
 - **`ValidationIssue`**: Individual validation error or warning
 - **`Validator`**: Main validator orchestrator
-- **Validators (R1-R10)**: Individual rule validators for each constraint
+- **Validators (R1-R14)**: Individual rule validators for each constraint
 
 ### CLI Tool
 
@@ -75,17 +87,6 @@ ruby parse_diagram.rb examples/sales_example/model.drawio.xml
 # Parse and validate
 ruby parse_diagram.rb examples/sales_example/model.drawio.xml --validate
 ```
-
-## Architecture
-
-### Core Components
-
-- **`Node`**: Represents DDD concepts (BoundedContext, Aggregate, Entity, Service, etc.)
-- **`Edge`**: Represents relationships (uses, composition, publishes, etc.)
-- **`Model`**: Container for nodes and edges with query capabilities
-- **`XmlParser`**: Low-level XML parsing using Nokogiri
-- **`MetadataExtractor`**: Extracts and normalizes DSML metadata
-- **`Parser`**: Main orchestrator that coordinates parsing
 
 ### Supported DSML Properties
 
@@ -119,51 +120,17 @@ The parser includes a comprehensive validation framework that enforces DSML and 
   - `domain_service` → `bounded_context`
   - `domain_event` → `bounded_context`
 - Error code: `R3_MISSING_REQUIRED_PROPERTY`
-      # Dependencies
-├── .rspec                    # RSpec configuration
-├── parser.rb                 # Main entry point
-├── node.rb                   # Node class
-├── edge.rb                   # Edge class
-├── model.rb                  # Model class with query API
-├── xml_parser.rb             # XML parsing logic
-├── metadata_extractor.rb     # Metadata extraction
-├── validation_report.rb      # ValidationReport & ValidationIssue
-├── validator.rb              # Main validator orchestrator
-├── validators/               # Individual rule validators
-│   ├── required_fields_validator.rb      # R1
-│   ├── uniqueness_validator.rb           # R2
-│   ├── required_properties_validator.rb  # R3
-│   ├── relation_type_validator.rb        # R4
-│   ├── composition_validator.rb          # R5
-│   ├── publishes_event_validator.rb      # R6
-│   ├── consumes_event_validator.rb       # R7
-│   ├── repository_access_validator.rb    # R8
-│   ├── integration_validator.rb          # R9
-│   ├── uses_validator.rb                 # R10
-│   ├── aggregate_ownership_validator.rb   # R11
-│   ├── bounded_context_membership_validator.rb # R12
-│   ├── event_ownership_validator.rb      # R13
-│   └── cross_context_validator.rb        # R14
-└── spec/                     # Test suite (134+ tests)
-    ├── spec_helper.rb
-    ├── parser_spec.rb
-    ├── model_spec.rb
-    ├── node_spec.rb
-    ├── edge_spec.rb
-    ├── metadata_extractor_spec.rb
-    ├── validation_report_spec.rb
-    ├── validator_spec.rb
-    └── validators/
-        ├── relation_type_validator_spec.rb
-        ├── composition_validator_spec.rb
-        ├── publishes_event_validator_spec.rb
-        ├── consumes_event_validator_spec.rb
-        ├── repository_access_validator_spec.rb
-        ├── integration_validator_spec.rb
-        └── uses_validaionships must have:
+
+**R4: Relation Type Validation**
+- Every edge must have a valid `relation_type` property
+- Valid types: `uses`, `composition`, `association`, `publishes_event`, `consumes_event`, `repository_access`, `integration`
+- Error code: `R4_INVALID_RELATION_TYPE`
+
+**R5: Composition Rules**
+- Composition relationships must have:
   - Source: `aggregate_root`
   - Target: `domain_event`
-- Error codes: `R6_INVALID_PUBLISHES_SOURCE`, `R6_INVALID_PUBLISHES_TARGET`
+- Error codes: `R6_INVALID_PUBLISHES_SOURCE`, `R6_INVALID_PUBLISHES_TARGET`, `R6_PUBLISHES_MISSING_BOUNDED_CONTEXT`
 
 **R7: Consumes Event Rules**
 - Consumes event relationships must have:
@@ -273,9 +240,55 @@ bundle exec rspec spec/parser_spec.rb
 
 ```
 ddd_diagram_parser/
-├── Gemfile              # Dependencies
-├── .rspec              # RSpec configuration
-├──Development Status
+├── Gemfile                   # Dependencies
+├── .rspec                    # RSpec configuration
+├── parser.rb                 # Main entry point
+├── node.rb                   # Node class
+├── edge.rb                   # Edge class
+├── model.rb                  # Model class with query API
+├── xml_parser.rb             # XML parsing logic
+├── metadata_extractor.rb     # Metadata extraction
+├── validation_report.rb      # ValidationReport & ValidationIssue
+├── validator.rb              # Main validator orchestrator
+├── validators/               # Individual rule validators
+│   ├── required_fields_validator.rb            # R1
+│   ├── uniqueness_validator.rb                 # R2
+│   ├── required_properties_validator.rb        # R3
+│   ├── relation_type_validator.rb              # R4
+│   ├── composition_validator.rb                # R5
+│   ├── publishes_event_validator.rb            # R6
+│   ├── consumes_event_validator.rb             # R7
+│   ├── repository_access_validator.rb          # R8
+│   ├── integration_validator.rb                # R9
+│   ├── uses_validator.rb                       # R10
+│   ├── aggregate_ownership_validator.rb        # R11
+│   ├── bounded_context_membership_validator.rb # R12
+│   ├── event_ownership_validator.rb            # R13
+│   └── cross_context_validator.rb              # R14
+└── spec/                     # Test suite (134 tests)
+    ├── spec_helper.rb
+    ├── parser_spec.rb
+    ├── model_spec.rb
+    ├── node_spec.rb
+    ├── edge_spec.rb
+    ├── metadata_extractor_spec.rb
+    ├── validation_report_spec.rb
+    ├── validator_spec.rb
+    └── validators/
+        ├── aggregate_ownership_validator_spec.rb
+        ├── bounded_context_membership_validator_spec.rb
+        ├── composition_validator_spec.rb
+        ├── consumes_event_validator_spec.rb
+        ├── cross_context_validator_spec.rb
+        ├── event_ownership_validator_spec.rb
+        ├── integration_validator_spec.rb
+        ├── publishes_event_validator_spec.rb
+        ├── relation_type_validator_spec.rb
+        ├── repository_access_validator_spec.rb
+        └── uses_validator_spec.rb
+```
+
+## Development Status
 
 **Completed:**
 - XML parsing with Nokogiri
