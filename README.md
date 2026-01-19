@@ -20,19 +20,42 @@ The solution consists of four main parts:
    The developer uses the DSML library to model the business domain in Draw.io and saves the model as a `.drawio` file.
    These diagrams describe the DDD structure: bounded contexts, aggregates, relationships, services, and events.
 
-3. **Diagram Parser** ✅
+3. **Diagram Parser**
    The `.drawio` model is parsed into a structured representation of the domain using a custom Ruby parser:
    - **Nokogiri-based XML parsing** for robust handling of Draw.io files
    - **Metadata extraction** for all DSML properties (ddd_type, ddd_name, bounded_context, etc.)
    - **Graph model** with nodes (DDD concepts) and edges (relationships)
    - **Query API** for accessing parsed elements by type, name, or relationships
-   - **60+ RSpec tests** ensuring reliability
+   - **Validation framework** with R1-R14 rules enforcing DSML and DDD constraints
+   - **134+ RSpec tests** ensuring reliability
 
    ```bash
    # Test the parser
    ruby parse_diagram.rb examples/sales_example/model.drawio.xml
+
+   # Validate a diagram
+   ruby parse_diagram.rb examples/sales_example/model.drawio.xml --validate
+
+   # Run tests
    cd ddd_diagram_parser && bundle exec rspec
    ```
+
+   **Validation Rules Implemented:**
+
+   - **R1**: Required fields - every node must have `ddd_type` and `ddd_name`
+   - **R2**: Uniqueness - bounded context names globally unique, aggregate/service/event names unique within bounded context
+   - **R3**: Required properties - each node type must have specific properties (e.g., aggregate needs `bounded_context` and `id_type`)
+   - **R4**: Every edge must have `relation_type`
+   - **R5**: Composition must be `AggregateRoot → Entity/ValueObject`
+   - **R6**: Publishes event must be `AggregateRoot → DomainEvent`
+   - **R7**: Consumes event must be `DomainEvent → Service`
+   - **R8**: Repository access must be `Service → Repository`
+   - **R9**: Integration must target `ExternalSystem`
+   - **R10**: Uses must not point to illegal types (value objects, events)
+   - **R11**: Entity and value object ownership - must belong to an aggregate via property and composition edge
+   - **R12**: Aggregate bounded context membership - every aggregate must belong to exactly one bounded context
+   - **R13**: Domain event ownership - every event must belong to a bounded context and be published by exactly one aggregate
+   - **R14**: Cross-bounded-context relationships - detects and validates relationships crossing BC boundaries
 
    See [`ddd_diagram_parser/README.md`](ddd_diagram_parser/README.md) for detailed documentation.
 

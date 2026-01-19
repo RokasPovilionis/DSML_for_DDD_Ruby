@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="test">
+    <mxGraphModel dx="1000" dy="1000" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- R1 violation: Missing ddd_name AND R2 should trigger when this is fixed -->
+        <object label="Sales" ddd_type="bounded_context" ddd_name="Sales" context_key="SALES" id="bc1">
+          <mxCell style="rounded=1" vertex="1" parent="1">
+            <mxGeometry x="100" y="100" width="200" height="100" as="geometry"/>
+          </mxCell>
+        </object>
+
+        <!-- R1 violation: Missing ddd_type -->
+        <object label="Order" ddd_name="Order" id="agg1">
+          <mxCell style="rounded=1" vertex="1" parent="1">
+            <mxGeometry x="100" y="250" width="200" height="100" as="geometry"/>
+          </mxCell>
+        </object>
+
+        <!-- R2 violation: Duplicate bounded context -->
+        <object label="Sales2" ddd_type="bounded_context" ddd_name="Sales" context_key="SALES" id="bc2">
+          <mxCell style="rounded=1" vertex="1" parent="1">
+            <mxGeometry x="400" y="100" width="200" height="100" as="geometry"/>
+          </mxCell>
+        </object>
+
+        <!-- R3 violation: Missing required properties -->
+        <object label="Customer" ddd_type="aggregate_root" ddd_name="Customer" id="agg2">
+          <mxCell style="rounded=1" vertex="1" parent="1">
+            <mxGeometry x="400" y="250" width="200" height="100" as="geometry"/>
+          </mxCell>
+        </object>
+
+        <!-- Valid aggregate for comparison -->
+        <object label="Product" ddd_type="aggregate_root" ddd_name="Product" bounded_context="Sales" id_type="uuid" id="agg3">
+          <mxCell style="rounded=1" vertex="1" parent="1">
+            <mxGeometry x="100" y="400" width="200" height="100" as="geometry"/>
+          </mxCell>
+        </object>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
