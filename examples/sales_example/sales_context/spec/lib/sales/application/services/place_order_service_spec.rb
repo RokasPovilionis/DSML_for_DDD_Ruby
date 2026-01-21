@@ -22,6 +22,25 @@ RSpec.describe Sales::Application::Services::PlaceOrderService do
         expect(order.order_date).to be_present
         expect(order.persisted?).to be true
       end
+
+      it 'uses repository to save the order' do
+        repository = instance_double(Sales::Domain::Repositories::OrderRepository)
+        allow(repository).to receive(:save) { |order| order.save!; order }
+
+        order = described_class.call(params, repository: repository)
+
+        expect(repository).to have_received(:save)
+        expect(order.persisted?).to be true
+      end
+
+      it 'processes domain events' do
+        allow(Rails.logger).to receive(:info)
+
+        order = described_class.call(params)
+
+        expect(Rails.logger).to have_received(:info).with(/Domain Event Published/)
+        expect(order.domain_events).to be_empty
+      end
     end
 
     context 'with invalid parameters' do
