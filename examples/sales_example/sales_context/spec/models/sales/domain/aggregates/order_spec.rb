@@ -25,7 +25,15 @@ RSpec.describe Sales::Domain::Aggregates::Order, type: :model do
 
       expect(order.status).to eq('placed')
       expect(order.order_date).to be_present
-      expect(order.persisted?).to be true
+    end
+
+    it 'publishes OrderPlaced domain event' do
+      order.place
+
+      expect(order.domain_events).not_to be_empty
+      expect(order.domain_events.first).to be_a(Sales::Domain::Events::OrderPlaced)
+      expect(order.domain_events.first.order_id).to eq(order.id)
+      expect(order.domain_events.first.customer_id).to eq(order.customer_id)
     end
 
     it 'raises error if order is already placed' do
@@ -35,6 +43,19 @@ RSpec.describe Sales::Domain::Aggregates::Order, type: :model do
         Sales::Domain::Aggregates::Order::DomainError,
         'Order cannot be placed'
       )
+    end
+  end
+
+  describe '#clear_events' do
+    it 'clears domain events' do
+      order = described_class.create_new(customer_id: 'customer-123', total_amount: 100.00)
+      order.place
+
+      expect(order.domain_events).not_to be_empty
+      
+      order.clear_events
+      
+      expect(order.domain_events).to be_empty
     end
   end
 
